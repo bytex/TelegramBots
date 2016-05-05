@@ -419,7 +419,8 @@ public abstract class AbsSender {
             throw new TelegramApiException("Error at sendDocument", jsonObject.getString("description"));
         }
 
-        return new Message(jsonObject);
+        // If everything is OK we can expect a "result" section. and out of this can a new Message object be built
+        return new Message(jsonObject.getJSONObject(Constants.RESPONSEFIELDRESULT));
     }
 
     public Message sendPhoto(SendPhoto sendPhoto) throws TelegramApiException {
@@ -478,7 +479,8 @@ public abstract class AbsSender {
             throw new TelegramApiException("Error at sendPhoto", jsonObject.getString("description"));
         }
 
-        return new Message(jsonObject);
+        // If everything is OK we can expect a "result" section. and out of this can a new Message object be built
+        return new Message(jsonObject.getJSONObject(Constants.RESPONSEFIELDRESULT));
     }
 
     public Message sendVideo(SendVideo sendVideo) throws TelegramApiException {
@@ -555,7 +557,8 @@ public abstract class AbsSender {
             throw new TelegramApiException("Error at sendVideo", jsonObject.getString("description"));
         }
 
-        return new Message(jsonObject);
+        // If everything is OK we can expect a "result" section. and out of this can a new Message object be built
+        return new Message(jsonObject.getJSONObject(Constants.RESPONSEFIELDRESULT));
     }
 
     public Message sendSticker(SendSticker sendSticker) throws TelegramApiException {
@@ -609,7 +612,8 @@ public abstract class AbsSender {
             throw new TelegramApiException("Error at sendSticker", jsonObject.getString("description"));
         }
 
-        return new Message(jsonObject);
+        // If everything is OK we can expect a "result" section. and out of this can a new Message object be built
+        return new Message(jsonObject.getJSONObject(Constants.RESPONSEFIELDRESULT));
     }
 
     /**
@@ -761,7 +765,8 @@ public abstract class AbsSender {
             throw new TelegramApiException("Error at sendVoice", jsonObject.getString("description"));
         }
 
-        return new Message(jsonObject);
+        // If everything is OK we can expect a "result" section. and out of this can a new Message object be built
+        return new Message(jsonObject.getJSONObject(Constants.RESPONSEFIELDRESULT));
     }
 
     // Simplified methods
