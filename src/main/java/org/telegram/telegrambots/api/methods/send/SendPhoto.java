@@ -1,5 +1,7 @@
 package org.telegram.telegrambots.api.methods.send;
 
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboard;
 
 /**
@@ -122,5 +124,9 @@ public class SendPhoto {
                 ", isNewPhoto=" + isNewPhoto +
                 ", photoName='" + photoName + '\'' +
                 '}';
+    }
+
+    public void addToBuilder(MultipartEntityBuilder builder) {
+        builder.addBinaryBody(SendPhoto.PHOTO_FIELD, new java.io.File(getPhoto()), ContentType.APPLICATION_OCTET_STREAM, getPhotoName());
     }
 }
